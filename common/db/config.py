@@ -1,5 +1,5 @@
 import psycopg2 as pg
-
+import psycopg2
 
 def db_config(db: str, user: str, host: str, password: str, port: str = '5432'):
     try:

@@ -1,0 +1,12 @@
+curl -LfO 'https://airflow.apache.org/docs/apache-airflow/2.3.3/docker-compose.yaml'
+  372  mkdir ./dags ./logs ./plugins
+  373  echo -e "AIRFLOW_UID=$(id -u)" > .env
+  374  docker-compose up airflow-init
+  375  docker-compose up -d
+  376  docker-compose down -v
+  377  docker-compose up airflow-init
+  378  docker-compose up -d
+  379  docker-compose down -v
+  380  docker-compose up airflow-init
+  381  docker-compose up -d
+

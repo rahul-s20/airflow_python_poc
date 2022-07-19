@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd D:/Projects/airflow_poc
+cd /home/rahul/Documents/airflow_poc
 
 export db='test_airflow'
 export user='postgres'
