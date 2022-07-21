@@ -2,6 +2,10 @@ from common.db.config import db_config
 from common.gcs_helper.gcs import GCS
 import pandas as pd
 from os import environ as env
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 
 
 class Operation:
@@ -31,4 +35,3 @@ def aps_daily():
     finally:
         # op_obj.cursor.close()
         op_obj.conn.close()
-
