@@ -20,13 +20,13 @@ class Operation:
         return res
 
 
-def aps_daily():
+def aps_daily(d):
     gcs_obj = GCS(bucket='aps_test')
-    op_obj = Operation()
+    # op_obj = Operation()
     try:
         print("job started")
-        data = op_obj.retrieve_data()
-        df = pd.DataFrame(data).apply(lambda x: ''.join(x) + '0', axis=1)
+        # data = op_obj.retrieve_data()
+        df = pd.DataFrame(d).apply(lambda x: ''.join(x) + '0', axis=1)
         gcs_obj.stream_push(df=df, key='APS/daily/12_jul_aps.txt')
         print("job completed")
     except Exception as er:
@@ -34,4 +34,5 @@ def aps_daily():
         print(f'{er}')
     finally:
         # op_obj.cursor.close()
-        op_obj.conn.close()
+        # op_obj.conn.close()
+        print("job completed done")

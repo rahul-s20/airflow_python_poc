@@ -4,14 +4,18 @@ from airflow import DAG
 from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
 
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 from modules.aps.daily_extraction import aps_daily
+from common.db_fetch.fetchd import fetch_data
 
 default_args = {
-    'owner': 'coder2j',
+    'owner': 'rahul',
     'retries': 5,
     'retry_delay': timedelta(minutes=5)
 }
+
+d = fetch_data()
 
 with DAG(
         default_args=default_args,
@@ -21,8 +25,10 @@ with DAG(
         schedule_interval='@daily'
 
 ) as dag:
+
     task1 = PythonOperator(
-        task_id='greet',
-        python_callable=aps_daily
+        task_id='push-to-gcs-common-daily',
+        python_callable=aps_daily,
+        op_args=[d]
     )
     task1
