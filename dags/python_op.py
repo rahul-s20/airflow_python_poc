@@ -6,8 +6,8 @@ from datetime import datetime, timedelta
 
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
-from modules.aps.daily_extraction import aps_daily
-from common.db_fetch.fetchd import fetch_data
+from aps.modules.aps.daily_extraction import aps_daily
+from aps.common.db_fetch.fetchd import fetch_data
 
 default_args = {
     'owner': 'rahul',

@@ -1,5 +1,5 @@
-from common.db.config import db_config
-from common.gcs_helper.gcs import GCS
+from aps.common.db.config import db_config
+from aps.common.gcs_helper.gcs import GCS
 import pandas as pd
 from os import environ as env
 import sys

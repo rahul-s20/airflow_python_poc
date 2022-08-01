@@ -23,12 +23,10 @@ x-airflow-common:
     user: 'postgres'
     host: '35.222.254.172'
     pswd: '123456789'
-    GOOGLE_APPLICATION_CREDENTIALS: 'data/feisty-album-354905-906697a6b545.json'
+    GOOGLE_APPLICATION_CREDENTIALS: 'aps/data/feisty-album-354905-906697a6b545.json'
 
   volumes:
-    - ./data:/opt/airflow/data
-    - ./modules:/opt/airflow/modules
-    - ./common:/opt/airflow/common
+    - ./aps:/opt/airflow/aps
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs
     - ./plugins:/opt/airflow/plugins
