@@ -36,7 +36,7 @@ with DAG(
     task2 = BashOperator(
         task_id='daily_transmission',
         bash_command="""
-            /aps/modules/transmission/daily_transmission.sh
+            ./daily_transmission.sh
             """,
         retries=3
     )
