@@ -2,6 +2,7 @@ import sys
 import os
 from airflow import DAG
 from airflow.operators.python import PythonOperator
+from airflow.operators.bash import BashOperator
 from datetime import datetime, timedelta
 
 
@@ -31,4 +32,12 @@ with DAG(
         python_callable=aps_daily,
         op_args=[d]
     )
-    task1
+
+    task2 = BashOperator(
+        task_id='daily_transmission',
+        bash_command="""
+            /aps/modules/transmission/daily_transmission.sh
+            """,
+        retries=3
+    )
+    task1 >> task2
